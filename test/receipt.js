@@ -11,4 +11,14 @@ describe("splitting out the restaurant costs", function(){
 
 		receipt.getTotalWithoutFood().should.equal(200);
 	});
+
+	it("should ignore case", function(){
+		var receipt = createReceipt([
+						 { name: "room", price: 100 },
+						 { name : "ASADOR", price: 24},
+						 { name: "parking", price: 100}
+						]);
+
+		receipt.getTotalWithoutFood().should.equal(200);
+	});
 });
