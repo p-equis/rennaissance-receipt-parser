@@ -1,12 +1,9 @@
-_ = require("underscore")
 
 create = (lineItems) ->
   getTotalWithoutFood: ->
     foodLineItems = ["asador", "rmservic", "club lng"]
-    _.chain(lineItems).filter((lineItem) ->
-      lineItem.name not in foodLineItems
-    ).reduce((sum, lineItem) ->
-      sum + lineItem.price
-    , 0).value()
-
+    lineItems = lineItems.filter (lineItem) ->  lineItem.name not in foodLineItems
+    prices = lineItems.map (lineItem) -> lineItem.price
+    prices.reduce (price1, price2) -> price1 + price2 
+    
 module.exports = create: create
