@@ -2,7 +2,7 @@ _ = require("underscore")
 
 create = (lineItems) ->
   getTotalWithoutFood: ->
-    foodLineItems = ["asador", "rmservic"]
+    foodLineItems = ["asador", "rmservic", "club lng"]
     _.chain(lineItems).filter((lineItem) ->
       lineItem.name not in foodLineItems
     ).reduce((sum, lineItem) ->

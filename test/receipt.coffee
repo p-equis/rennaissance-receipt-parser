@@ -27,3 +27,13 @@ describe "splitting out the restaurant costs", ->
     ])
     receipt.getTotalWithoutFood().should.equal 250
 
+  it "should subtract club lounge line items", ->
+    receipt = createReceipt([
+        name: "room" 
+        price: 100
+      ,
+        name: "club lng" 
+        price: 10
+    ])
+    receipt.getTotalWithoutFood().should.equal 100
+
