@@ -1,8 +1,9 @@
 should = require("should")
-createReceipt = require("../src/receipt.js").create
+Receipt = require("../src/receipt.js")
+
 describe "splitting out the restaurant costs", ->
   it "should subtract asador line items", ->
-    receipt = createReceipt([
+    receipt = new Receipt([
       name: "room"
       price: 100
     ,
@@ -15,7 +16,7 @@ describe "splitting out the restaurant costs", ->
     receipt.getTotalWithoutFood().should.equal 200
 
   it "should subtract room service line items", ->
-    receipt = createReceipt([
+    receipt = new Receipt([
       name: "room"
       price: 150
     ,
@@ -28,7 +29,7 @@ describe "splitting out the restaurant costs", ->
     receipt.getTotalWithoutFood().should.equal 250
 
   it "should subtract club lounge line items", ->
-    receipt = createReceipt([
+    receipt = new Receipt([
         name: "room" 
         price: 100
       ,
