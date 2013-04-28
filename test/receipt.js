@@ -31,4 +31,14 @@ describe("splitting out the restaurant costs", function(){
 
 		receipt.getTotalWithoutFood().should.equal(300);
 	});
+
+	it("should subtract room service line items", function(){
+		var receipt = createReceipt([
+						 { name: "room", price: 150 },
+						 { name : "RMSERVIC", price: 10},
+						 { name: "parking", price: 100}
+						]);
+
+		receipt.getTotalWithoutFood().should.equal(250);
+	});
 });
