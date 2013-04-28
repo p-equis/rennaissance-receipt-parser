@@ -3,11 +3,11 @@ var _ = require("underscore");
 var create = function(lineItems){
 	return {
 		getTotalWithoutFood: function() {
+			var foodLineItems = ["asador", "rmservic"];
+
 			return _.chain(lineItems)
 				.filter(function(lineItem) { 
-					return lineItem.name.toLowerCase().trim() != "asador"
-						&& lineItem.name.toLowerCase().trim() != "rmservic"; 
-				
+					return foodLineItems.indexOf(lineItem.name.toLowerCase().trim()) == -1;
 				})
 				.reduce(function(sum, lineItem) { return sum + lineItem.price; }, 0)
 				.value();
