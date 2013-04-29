@@ -3,12 +3,22 @@ LineItemParser = require("../src/LineItemParser.js")
 fileSystem = require("fs")
 _ = require("underscore")
 
-parser = new LineItemParser()
 html = fileSystem.readFileSync("test/receipt.html", "utf8")
+parser = new LineItemParser(html)
 
 describe "LineItemParser", ->
 	it "should find the right number of line items in all that mess", ->
-		parser.parse(html).length.should.equal 46
+		parser.parse().length.should.equal 46
 
-	it "should read the description correctly", ->
-		_.where(parser.parse(html), description: "ROOM TR").length.should.equal 6
+	it "should extract the description", ->
+		_.chain(parser.parse())
+		.where(description: "ROOM TR")
+		.value()
+		.length.should.equal 6
+
+	it "should associate the price with the description", ->
+		_.chain(parser.parse())
+		.where(description: "ROOM TR")
+		.first()
+		.value()
+		.price.should.equal 85		
