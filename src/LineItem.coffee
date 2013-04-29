@@ -2,9 +2,9 @@ class LineItem
 	foodIdentifiers = ["asador", "club lng", "rmservic"]
 
 	constructor: (options) ->
-		@description = options.description
+		@description = options.description.toLowerCase().trim()
 		@price = options.price
 
-	isFood: -> @description.toLowerCase().trim() in foodIdentifiers
+	isFood: -> @description in foodIdentifiers
 
 module.exports = LineItem
