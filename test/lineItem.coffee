@@ -3,13 +3,31 @@ LineItem = require("../src/LineItem.js")
 
 describe "LineItems", ->
 	it "should be food when the description is the asador", ->
-		new LineItem("asador").isFood().should.equal true
+		new LineItem(
+			description: "asador"
+			price: 1
+		).isFood().should.equal true
 
 	it "should not be food when the description is 'parking'", ->
-		new LineItem("parking").isFood().should.equal false
+		new LineItem(
+			description: "parking"
+			price: 1
+		).isFood().should.equal false
 
 	it "should be food when the description is 'club lng'", ->
-		new LineItem("club lng").isFood().should.equal true
+		new LineItem(
+			description: "club lng"
+			price: 10
+		).isFood().should.equal true
 
 	it "should be food when the description is 'rmservic'", ->
-		new LineItem("rmservic").isFood().should.equal true
+		new LineItem(
+			description: "rmservic"
+			price: 10
+		).isFood().should.equal true
+
+	it "should have a price", ->
+		new LineItem(
+			price: 10
+			description: "something"
+		).price.should.equal 10
