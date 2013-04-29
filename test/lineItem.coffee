@@ -31,3 +31,8 @@ describe "LineItems", ->
 			price: 10
 			description: "something"
 		).price.should.equal 10
+	
+	it "should recognize food even when it's uppercase", ->
+		new LineItem(
+			description: "ASADOR"
+		).isFood().should.equal true
