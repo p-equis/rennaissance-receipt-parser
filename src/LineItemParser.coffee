@@ -1,4 +1,5 @@
 cheerio = require("cheerio")
+LineItem = require("./LineItem")
 
 class LineItemParser
 	$ = {}
@@ -21,7 +22,9 @@ class LineItemParser
 		
 		rows.map ->
 			cells = this.children()
-			description: $(cells[2]).text()
-			price: +$(cells[4]).text()
+			new LineItem(
+				description: $(cells[2]).text()
+				price: +$(cells[4]).text()
+			)
 
 module.exports = LineItemParser

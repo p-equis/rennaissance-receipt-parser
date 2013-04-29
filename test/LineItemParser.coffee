@@ -12,13 +12,13 @@ describe "LineItemParser", ->
 
 	it "should extract the description", ->
 		_.chain(parser.parse())
-		.where(description: "ROOM TR")
+		.where(description: "room tr")
 		.value()
 		.length.should.equal 6
 
 	it "should associate the price with the description", ->
 		_.chain(parser.parse())
-		.where(description: "ROOM TR")
+		.where(description: "room tr")
 		.first()
 		.value()
 		.price.should.equal 85		
