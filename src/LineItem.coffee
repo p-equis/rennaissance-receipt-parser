@@ -3,6 +3,6 @@ class LineItem
 		@description = description
 
 	isFood: ->
-		@description == "asador"
+		@description == "asador" or @description == "club lng" or @description == "rmservic"
 
 module.exports = LineItem
