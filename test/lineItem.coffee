@@ -36,3 +36,8 @@ describe "LineItems", ->
 		new LineItem(
 			description: "ASADOR"
 		).isFood().should.equal true
+
+	it "should recognize food even when there's extra whitespace", ->
+		new LineItem(
+			description: "   club lng     "
+		).isFood().should.equal true

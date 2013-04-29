@@ -5,6 +5,6 @@ class LineItem
 		@description = options.description
 		@price = options.price
 
-	isFood: -> @description.toLowerCase() in foodIdentifiers
+	isFood: -> @description.toLowerCase().trim() in foodIdentifiers
 
 module.exports = LineItem
