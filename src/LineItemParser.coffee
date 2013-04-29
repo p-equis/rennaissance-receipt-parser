@@ -13,8 +13,8 @@ class LineItemParser
 		numberOfCellsInALineItem = 7
 		tableContainingLineItems
 			.children()
-			.filter ->
-				this.children().length == numberOfCellsInALineItem
+			.filter( -> this.children().length == numberOfCellsInALineItem)
+			.slice 1
 
 
 	parse: ->

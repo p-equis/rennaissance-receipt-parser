@@ -8,7 +8,7 @@ parser = new LineItemParser(html)
 
 describe "LineItemParser", ->
 	it "should find the right number of line items in all that mess", ->
-		parser.parse().length.should.equal 46
+		parser.parse().length.should.equal 45
 
 	it "should extract the description", ->
 		_.chain(parser.parse())
@@ -21,4 +21,8 @@ describe "LineItemParser", ->
 		.where(description: "room tr")
 		.first()
 		.value()
-		.price.should.equal 85		
+		.price.should.equal 85
+
+	it "should skip the header", -> 
+		firstItem = _.first(parser.parse())
+		firstItem.description.should.equal "telecomm" 		
