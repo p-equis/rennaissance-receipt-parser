@@ -6,14 +6,11 @@ fileSystem = require("fs")
 class Hotel
 	constructor: (options) ->
 		html = fileSystem.readFileSync(options.pathToReceipt, "utf8")
-		@parser = new LineItemParser(html)
+		parser = new LineItemParser(html)
+		@receipt = new Receipt(parser.parse())
 
-	actualExpenses: -> 
-		lineItems = @parser.parse()
-		new Receipt(lineItems).getTotalWithoutFood()
+	actualExpenses: -> @receipt.getTotalWithoutFood()
 
-	totalBilled: ->
-		lineItems = @parser.parse()
-		new Receipt(lineItems).getTotal()
+	totalBilled: -> @receipt.getTotal()
 
 module.exports = Hotel
