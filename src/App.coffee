@@ -8,7 +8,7 @@ class App
 		@pathToReceipt = @process.argv[2]
 
 		if(not @pathToReceipt) 
-			@console.log("   Usage: App.js <pathToReceipt>\n")
+			@console.log("\tUsage: App.js <pathToReceipt>\n")
 			@process.exit(1)
 
 	generateReport: ->
