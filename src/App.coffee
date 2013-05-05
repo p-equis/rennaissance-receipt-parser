@@ -1,5 +1,10 @@
 class App 
-	constructor: (Hotel, NotARealReceipt, process, console) ->
+	constructor: (dependencies) ->
+		Hotel = dependencies.Hotel
+		console = dependencies.console
+		process = dependencies.process
+		NotARealReceipt = dependencies.NotARealReceipt
+
 		pathToReceipt = process.argv[2]
 
 		if(not pathToReceipt) 
