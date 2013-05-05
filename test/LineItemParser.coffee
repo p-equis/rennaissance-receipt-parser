@@ -1,5 +1,6 @@
 should = require("should")
 LineItemParser = require("../src/LineItemParser.js")
+NotARealReceipt = require("../src/NotARealReceipt.js")
 fileSystem = require("fs")
 _ = require("underscore")
 
@@ -25,4 +26,10 @@ describe "LineItemParser", ->
 
 	it "should skip the header", -> 
 		firstItem = _.first(parser.parse())
-		firstItem.description.should.equal "telecomm" 		
+		firstItem.description.should.equal "telecomm" 	
+
+	it "should throw a useful exception when the html can't be parsed", ->
+		creation = -> 
+			new LineItemParser("this isn't really html")
+
+		creation.should.throw(NotARealReceipt)	

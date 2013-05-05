@@ -1,10 +1,14 @@
 cheerio = require("cheerio")
 LineItem = require("./LineItem")
+_string = require("underscore.string")
+NotARealReceipt = require("./NotARealReceipt.js")
 
 class LineItemParser
 	$ = {}
 
-	constructor: (html) -> 
+	constructor: (html) ->
+		if(! _string.include(html, "eFolio"))
+			throw new NotARealReceipt()
 		$ = cheerio.load(html)
 
 	_getRawLineItems: ->
