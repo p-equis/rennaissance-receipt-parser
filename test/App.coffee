@@ -2,7 +2,7 @@ should = require("should")
 App = require "../src/App.js"
 
 describe "The App", ->
-	it "should write to the console when you give it a file that isn't a receipt", ->
+	it "should write a helpful message to the console when you give it a file that isn't a receipt", ->
 		NotARealReceipt = class NotARealReceipt
 		message = {}
 		
@@ -14,5 +14,7 @@ describe "The App", ->
 			console:
 				log: (text) -> message = text
 		)
+
+		app.generateReport()
 
 		message.should.equal "That file doesn't look like a real Rennaisance receipt!"

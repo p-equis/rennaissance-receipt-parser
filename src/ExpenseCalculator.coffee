@@ -6,3 +6,4 @@ new App(
 	console: console
 	process: process
 )
+.generateReport()
