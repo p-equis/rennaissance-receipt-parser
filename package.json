@@ -1,0 +1,19 @@
+{
+	"name" : "expenses",
+	"preferGlobal" : true,
+	"version" : "0.1.0",
+	"scripts" : {
+		"preinstall" : "make"
+	},
+	"dependencies" : {
+		"cheerio" : "0.11.0",
+		"underscore" : "1.4.4",
+		"underscore.string" : "2.3.1"
+	},
+	"bin" : "expenseCalculator",
+	"devDependencies" : {
+		"mocha" : "1.9.0",
+		"should" : "1.2.2",
+		"coffee-script" : "1.4.0"
+	}
+}
