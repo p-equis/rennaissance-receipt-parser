@@ -33,7 +33,7 @@ describe "The App", ->
 					log: (text) -> message = text
 			)
 
-			message.should.equal "\tUsage: App.js <pathToReceipt>\n"
+			message.should.equal "\tUsage: expenses <pathToReceipt>\n"
 			exitCode.should.equal 1
 
 
