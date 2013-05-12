@@ -24,3 +24,13 @@ describe "Receipt", ->
       price:  100
     ])
     receipt.getTotal().should.equal 224
+
+  it "should round to the nearest penny", ->
+    receipt = new Receipt([
+        price: 100.010101
+        isFood: -> false
+      ,
+        price: 100.02
+        isFood: -> false
+      ])
+    receipt.getTotalWithoutFood().should.equal 200.03
