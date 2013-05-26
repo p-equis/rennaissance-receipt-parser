@@ -18,5 +18,7 @@ class App
 		catch error
 			if(error instanceof @NotARealReceipt)
 				@console.log("That file doesn't look like a real Rennaisance receipt!")
+			else
+				throw error
 
 module.exports = App

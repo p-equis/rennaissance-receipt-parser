@@ -36,6 +36,19 @@ describe "The App", ->
 			message.should.equal "\tUsage: expenses <pathToReceipt>\n"
 			exitCode.should.equal 1
 
+		it "should throw on any unexpected exceptions", ->
+			UnexpectedException = class UnexpectedException
+			message = {}
+
+			app = new App(
+				Hotel: -> throw new UnexpectedException
+				NotARealReceipt: class NotARealReceipt
+				process:
+					argv: ["", "", "path to a fake receipt"]
+			)
+
+			(-> app.generateReport()).should.throw()
+
 
 	describe "happy path", ->
 		it "should write the results of exactly how much you should expense", ->
