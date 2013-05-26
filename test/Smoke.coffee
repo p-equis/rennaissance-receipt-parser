@@ -1,15 +1,19 @@
 should = require("should")
-util = require("util")
 exec = require("child_process").exec
+fs = require("fs-extra")
+
+shouldNotHaveAnError = (path, done, cleanup) ->
+	exec("sh expenseCalculator #{path}", (error) ->
+	  should.not.exist error
+	  cleanup() unless not cleanup
+	  done()
+	)
 
 describe "Smoke tests", ->
-	returnValue = null
-
-	beforeEach (done) ->
-		child = exec("sh expenseCalculator test/receipt.html", (error, stdout, stderr) ->
-		  returnValue = error if error isnt null
-		  done()
+	it "should not throw an error", (done)-> 
+		shouldNotHaveAnError "test/receipt.html", done
+		
+	it "should not throw an error even when the path has multiple words", (done) ->
+		fs.copy("test/receipt.html", "test/receipt with spaces.html", (err)->
+				shouldNotHaveAnError "test/receipt with spaces.html", done, -> fs.remove("test/receipt with spaces.html") 
 		)
-
-	it "should not throw an error", -> 
-		should.not.exist returnValue
