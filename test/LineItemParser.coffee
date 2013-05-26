@@ -24,12 +24,12 @@ describe "LineItemParser", ->
 		.value()
 		.price.should.equal 85
 
-	it "should skip the header", -> 
+	it "should skip the header", ->
 		firstItem = _.first(parser.parse())
-		firstItem.description.should.equal "telecomm" 	
+		firstItem.description.should.equal "telecomm"
 
 	it "should throw a useful exception when the html can't be parsed", ->
-		creation = -> 
+		creation = ->
 			new LineItemParser("this isn't really html")
 
-		creation.should.throw(NotARealReceipt)	
+		creation.should.throw(NotARealReceipt)

@@ -10,7 +10,7 @@ shouldNotHaveAnError = (path, done, cleanup) ->
 	)
 
 describe "Smoke tests", ->
-	it "should not throw an error", (done)-> 
+	it "should not throw an error", (done)->
 		shouldNotHaveAnError "test/receipt.html", done
 		
 	it "should not throw an error even when the path has multiple words", (done) ->

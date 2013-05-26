@@ -26,8 +26,7 @@ module.exports = function(grunt){
 			options : {
 				no_tabs: {level: "ignore"},
 				indentation : {level: "ignore"},
-				max_line_length : {level: "ignore"},
-				no_trailing_whitespace : {level: "ignore"}
+				max_line_length : {level: "ignore"}
 			}
 		}
 	});

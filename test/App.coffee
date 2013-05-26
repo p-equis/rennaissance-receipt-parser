@@ -55,10 +55,10 @@ describe "The App", ->
 			message = ""
 
 			app = new App(
-				Hotel: 
+				Hotel:
 					class Hotel
 						actualExpenses: -> 60.5
-				process: 
+				process:
 					argv: ["", "", "pathToReceipt"]
 				console:
 					log: (text) -> message = text

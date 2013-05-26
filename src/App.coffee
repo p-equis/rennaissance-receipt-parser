@@ -1,4 +1,4 @@
-class App 
+class App
 	constructor: (dependencies) ->
 		@Hotel = dependencies.Hotel
 		@console = dependencies.console
@@ -7,7 +7,7 @@ class App
 
 		@pathToReceipt = @process.argv[2]
 
-		if(not @pathToReceipt) 
+		if(not @pathToReceipt)
 			@console.log("\tUsage: expenses <pathToReceipt>\n")
 			@process.exit(1)
 
