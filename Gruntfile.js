@@ -37,7 +37,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks("grunt-coffeelint");
 
 	grunt.registerTask("build", ["coffee"]);
-	grunt.registerTask("test", ["simplemocha"]);
+	grunt.registerTask("test", ["build", "simplemocha"]);
 	
-	grunt.registerTask("default", ["coffeelint", "build", "test"]);
+	grunt.registerTask("default", ["coffeelint", "test"]);
 };
