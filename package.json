@@ -21,6 +21,7 @@
 	  "grunt-contrib-coffee" : "0.7.0",	
 	  "grunt-contrib-clean" : "0.4.1",	
 	  "coffeelint" : "0.5.4",
-	  "grunt-coffeelint" : "0.0.6"	
+	  "grunt-coffeelint" : "0.0.6",
+	  "fs-extra" : "0.6.1"	
 	}
 }
